@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="description" content="Proje ve ekip üyelerini tarayıcınızda yönetin, düzenleyin, yedekleyin ve PDF olarak yazdırın.">
+<title>Proje ve Ekip Yönetim Sistemi</title>
+<style>
+:root{--ink:#15223c;--muted:#60708b;--line:#e0e7f1;--surface:#fff;--bg:#f4f7fc;--primary:#3367d6;--primary-dark:#2454bd;--soft:#eaf1ff;--danger:#c23742;--danger-bg:#fff1f2;--shadow:0 8px 28px rgba(21,34,60,.06)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--bg)}button,input{font:inherit}button{cursor:pointer}button:disabled{opacity:.55;cursor:not-allowed}button:focus-visible,input:focus-visible{outline:3px solid #93b8ff;outline-offset:2px}svg{width:19px;height:19px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.hidden{display:none!important}.container{width:min(1180px,calc(100% - 40px));margin:auto}.topbar{background:linear-gradient(110deg,#101d34 10%,#1c365f 100%);color:#fff;position:relative;isolation:isolate;overflow:hidden}.topbar:before{content:"";position:absolute;width:540px;height:540px;right:-100px;top:-390px;background:radial-gradient(circle,rgba(91,151,255,.27),transparent 66%);z-index:-1}.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:91px}.brand{display:flex;gap:14px;align-items:center}.brand-icon{width:47px;height:47px;border-radius:14px;display:grid;place-items:center;background:#4e82ec;box-shadow:0 8px 22px #0002}.brand-icon svg{width:25px;height:25px}.brand strong{display:block;font-size:17px;letter-spacing:-.35px;line-height:1.3}.brand small{color:#b6c6df;font-size:12px}.header-actions,.toolbar-actions,.card-actions,.item-actions,.form-actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.btn{border:1px solid transparent;border-radius:11px;padding:10px 14px;font-weight:650;font-size:13px;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:background .18s,border-color .18s,transform .18s;text-decoration:none;white-space:nowrap}.btn:hover{transform:translateY(-1px)}.btn-primary{background:var(--primary);color:white}.btn-primary:hover{background:var(--primary-dark)}.btn-header{background:rgba(255,255,255,.11);border-color:rgba(255,255,255,.18);color:#fff}.btn-header:hover{background:rgba(255,255,255,.2)}.btn-light{background:#fff;color:var(--ink);border-color:var(--line)}.btn-light:hover{background:#f8fbff;border-color:#bed1f1}.btn-danger{background:var(--danger-bg);color:var(--danger);border-color:#ffd9dc}.btn-danger:hover{background:#ffe2e5}.btn-plain{background:transparent;color:var(--muted);border-color:transparent}.btn-plain:hover{background:#f0f4fc;color:var(--ink)}.btn-sm{padding:6px 10px;border-radius:8px;font-size:12px}.btn svg{width:17px;height:17px}main{padding:36px 0 68px}.page-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;margin-bottom:24px}.eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:11px;font-weight:800;color:var(--primary);margin:0 0 6px}.page-heading h1{font-size:clamp(24px,3vw,34px);line-height:1.15;letter-spacing:-1px;margin:0 0 10px;font-weight:790}.page-heading p{margin:0;color:var(--muted);font-size:14px}.local-badge{border:1px solid #d5e4fa;border-radius:999px;background:#eaf2ff;color:#315a96;font-size:12px;font-weight:700;padding:7px 11px;white-space:nowrap;display:flex;align-items:center;gap:8px}.local-badge:before{content:"";width:7px;height:7px;background:#4d9a86;border-radius:50%}.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin-bottom:21px}.stat{display:flex;align-items:center;gap:17px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:19px 22px;box-shadow:var(--shadow)}.stat-icon{width:49px;height:49px;display:grid;place-items:center;border-radius:14px;background:#eff4ff;color:var(--primary)}.stat-icon svg{width:23px;height:23px}.stat:nth-child(2) .stat-icon{background:#f1edff;color:#7052c9}.stat:nth-child(3) .stat-icon{background:#eaf8f4;color:#1d886c}.stat small{display:block;font-size:12px;color:var(--muted)}.stat strong{display:block;font-size:25px;letter-spacing:-.7px;line-height:1.2;margin-top:2px}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;background:white;border:1px solid var(--line);border-radius:16px;padding:15px 17px;margin-bottom:15px;box-shadow:var(--shadow)}.search-wrap{position:relative;flex:1 1 300px;max-width:420px}.search-wrap>svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:#8ba0bc}.search-wrap input{width:100%;border:1px solid #dbe4ef;background:#f8fafd;border-radius:10px;padding:11px 14px 11px 42px;color:var(--ink);min-width:0}.search-wrap input:focus{outline:2px solid #9cbfff;border-color:transparent;background:#fff}.toolbar-actions{justify-content:flex-end}.toolbar-count{font-size:12px;color:var(--muted);font-weight:600;margin-right:5px}.notice{background:#fffaec;border:1px solid #f1d696;color:#795a15;border-radius:12px;padding:12px 16px;font-size:13px;margin-bottom:18px}.print-heading{display:none}.section-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:22px 0 14px}.section-heading h2{font-size:16px;margin:0}.section-heading span{font-size:12px;color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}.project-card{background:white;border:1px solid var(--line);border-radius:17px;box-shadow:var(--shadow);padding:20px;min-width:0;transition:border-color .15s,box-shadow .15s}.project-card:hover{border-color:#c2d5f4;box-shadow:0 12px 35px rgba(21,34,60,.09)}.project-topline{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px}.project-index{font-size:10px;font-weight:800;letter-spacing:1.4px;color:#6d87af}.member-pill{font-size:11px;font-weight:700;color:#4271b3;background:#edf3ff;border-radius:40px;padding:4px 10px;white-space:nowrap}.project-card h3{font-size:17px;letter-spacing:-.35px;line-height:1.38;min-height:47px;margin:0 0 15px;overflow-wrap:anywhere}.card-actions{gap:5px;border-top:1px solid #eef2f8;border-bottom:1px solid #eef2f8;padding:8px 0;margin-bottom:6px}.card-actions .btn{font-weight:600}.members{list-style:none;padding:0;margin:0}.member{display:flex;justify-content:space-between;align-items:center;gap:8px;border-bottom:1px solid #f0f3f8;padding:10px 0;min-width:0}.member:last-child{border-bottom:0}.member-profile{display:flex;align-items:center;gap:10px;min-width:0}.avatar{width:36px;height:36px;flex-shrink:0;display:grid;place-items:center;border-radius:11px;background:#eef3fc;color:#4468a2;font-size:11px;font-weight:800}.member-name{font-size:13px;font-weight:700;overflow-wrap:anywhere}.member-detail{font-size:11px;color:var(--muted);overflow-wrap:anywhere}.item-actions{flex-wrap:nowrap;gap:2px}.item-actions .btn{padding:6px 7px;font-size:11px}.card-footer{display:flex;justify-content:flex-end;padding-top:12px;margin-top:5px;border-top:1px solid #eef2f8}.empty-members{padding:15px 0;color:var(--muted);font-size:12px;text-align:center}.empty-state{text-align:center;padding:70px 18px;border:1px dashed #cbd8ea;border-radius:17px;background:white}.empty-state svg{color:#abc0d9;width:45px;height:45px}.empty-state h3{margin:12px 0 5px}.empty-state p{color:var(--muted);font-size:13px;margin:0}.page-footer{text-align:center;color:#8190a6;font-size:12px;padding:22px 16px;border-top:1px solid var(--line)}dialog{padding:0;border:none;border-radius:18px;box-shadow:0 25px 100px rgba(15,32,65,.28);width:min(480px,calc(100% - 26px));max-height:calc(100dvh - 28px);overflow:auto;color:var(--ink)}dialog::backdrop{background:rgba(12,26,51,.55);backdrop-filter:blur(3px)}.dialog-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:20px 22px;border-bottom:1px solid var(--line)}.dialog-head h2{font-size:19px;letter-spacing:-.4px;margin:0}.dialog-content{padding:22px}.field{margin-bottom:17px}.field label{display:block;color:#435474;font-weight:700;font-size:12px;margin-bottom:7px}.field input{display:block;width:100%;border:1px solid #d5dfed;border-radius:10px;background:#f9fbff;padding:11px 13px;color:var(--ink)}.field input:focus{background:#fff;border-color:#78a3ed;outline:2px solid #bdd3fb}.field small{color:var(--muted);font-size:11px}.form-actions{justify-content:flex-end;margin-top:22px;border-top:1px solid #eef1f7;padding-top:17px}.toast{position:fixed;right:24px;bottom:24px;z-index:10000;max-width:min(420px,calc(100vw - 30px));padding:13px 18px;border-radius:12px;background:#192941;color:#fff;box-shadow:0 10px 30px #0002;font-size:13px;transform:translateY(110px);opacity:0;pointer-events:none;transition:transform .22s,opacity .22s}.toast.visible{transform:translateY(0);opacity:1}.toast.error{background:#9f2938}.toast.warn{background:#725516}.text-button{background:none;border:0;padding:0;color:var(--primary);font-weight:700;text-decoration:underline;cursor:pointer}
+@media (max-width:900px){.nav{align-items:flex-start;padding:18px 0;flex-direction:column}.stats{gap:10px}.stat{padding:16px;gap:12px}.stat-icon{width:42px;height:42px}.header-actions{width:100%}.grid{grid-template-columns:1fr}.project-card h3{min-height:0}}
+@media (max-width:610px){.container{width:calc(100% - 26px)}main{padding:24px 0 40px}.brand strong{font-size:15px}.page-heading{align-items:start;flex-direction:column}.stats{grid-template-columns:1fr}.stat{padding:13px 15px}.stat strong{font-size:23px}.toolbar{padding:13px}.search-wrap{max-width:none}.toolbar-actions{width:100%;justify-content:space-between}.toolbar-count{width:100%}.header-actions .btn{flex:1}.project-card{padding:16px}.project-card h3{font-size:16px}.item-actions{gap:0}.item-actions .btn{font-size:10px;padding:5px}.member-detail{font-size:10px}.avatar{width:32px;height:32px}.local-badge{font-size:11px}}
+@media print{@page{size:A4;margin:13mm}body{background:#fff!important;font-size:11pt;color:#000;-webkit-print-color-adjust:exact;print-color-adjust:exact}.no-print,.topbar,.page-footer,.toast,dialog{display:none!important}main{padding:0}.container{width:100%;max-width:100%}.print-heading{display:block;margin:0 0 16px;padding-bottom:10px;border-bottom:2px solid #111}.print-heading h1{font-size:19pt;margin:0 0 3px}.print-heading p{margin:0;color:#555;font-size:10pt}.page-heading,.stats,.toolbar,.section-heading{display:none!important}.grid{display:block}.project-card{border:1px solid #bfc8d3;box-shadow:none!important;border-radius:9px;padding:13px 15px;margin:0 0 12px;break-inside:avoid;page-break-inside:avoid}.project-card h3{min-height:0;font-size:12pt;margin-bottom:7px}.project-topline{margin-bottom:5px}.project-index{color:#444}.member-pill{background:#eee;color:#333}.card-actions,.card-footer,.item-actions{display:none!important}.member{padding:5px 0}.member-name{font-size:10pt}.member-detail{font-size:9pt;color:#555}.avatar{width:28px;height:28px;background:#eee;color:#444}.empty-state{border:0;padding:30px}.empty-state svg{display:none}}
+</style>
+</head>
+<body>
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden" xmlns="http://www.w3.org/2000/svg"><symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2 9 5-9 5-9-5 9-5Zm-9 10 9 5 9-5M3 17l9 5 9-5"/></symbol><symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol><symbol id="i-print" viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></symbol><symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/><path d="M1 21v-2a7 7 0 0 1 14 0v2M17 3a4 4 0 0 1 0 8m3 10v-2a7 7 0 0 0-4-6.3"/></symbol><symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20h16M6 16V9m6 7V4m6 12v-5"/></symbol><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol><symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5 5 19"/></symbol><symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v13m-5-5 5 5 5-5M4 17v4h16v-4"/></symbol><symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 17V4m-5 5 5-5 5 5M4 17v4h16v-4"/></symbol></svg>
+<header class="topbar no-print"><div class="container nav"><div class="brand"><div class="brand-icon"><svg aria-hidden="true" style="fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><use href="#i-layers"/></svg></div><div><strong>Proje &amp; Ekip Yönetimi</strong><small>Öğrenci projeleri yönetim paneli</small></div></div><div class="header-actions"><button id="printBtn" class="btn btn-header" type="button"><svg aria-hidden="true"><use href="#i-print"/></svg> PDF / Yazdır</button><button id="newProjectBtn" class="btn btn-primary" type="button"><svg aria-hidden="true"><use href="#i-plus"/></svg> Yeni Proje Ekle</button></div></div></header>
+<main class="container">
+  <div class="print-heading"><h1>Proje ve Ekip Listesi</h1><p id="printMeta"></p></div>
+  <div class="page-heading no-print"><div><p class="eyebrow">Yönetim paneli</p><h1>Projeler ve ekipler</h1><p>Proje başlıklarını ve öğrenci ekiplerini tek yerden düzenleyin.</p></div><div class="local-badge" id="storageBadge" title="Kayıtlarınız bu tarayıcıda saklanır; ortak veritabanı kullanılmaz.">Bu tarayıcıda kayıtlı</div></div>
+  <div class="stats no-print"><div class="stat"><div class="stat-icon"><svg aria-hidden="true"><use href="#i-layers"/></svg></div><div><small>Toplam proje</small><strong id="statProjects">0</strong></div></div><div class="stat"><div class="stat-icon"><svg aria-hidden="true"><use href="#i-users"/></svg></div><div><small>Ekip üyeliği kaydı</small><strong id="statMembers">0</strong></div></div><div class="stat"><div class="stat-icon"><svg aria-hidden="true"><use href="#i-chart"/></svg></div><div><small>Farklı bölüm</small><strong id="statDepartments">0</strong></div></div></div>
+  <div id="storageNotice" class="notice no-print hidden" role="alert">Tarayıcıda kalıcı kayıt yapılamıyor. Değişiklikler bu oturumda görünebilir ancak sayfa yenilenince kaybolabilir. <strong>JSON yedeği indirmeniz önerilir.</strong></div>
+  <div id="dataNotice" class="notice no-print hidden" role="alert"></div>
+  <div class="toolbar no-print"><div class="search-wrap"><svg aria-hidden="true"><use href="#i-search"/></svg><input id="searchInput" type="search" autocomplete="off" aria-label="Projelerde ara" placeholder="Proje, öğrenci, bölüm veya sınıf ara..."></div><div class="toolbar-actions"><span class="toolbar-count" id="projectCount">0 proje görüntüleniyor</span><button class="btn btn-light btn-sm" type="button" id="exportBtn"><svg aria-hidden="true"><use href="#i-download"/></svg> Yedekle</button><button class="btn btn-light btn-sm" type="button" id="importBtn"><svg aria-hidden="true"><use href="#i-upload"/></svg> İçe Aktar</button><button class="btn btn-plain btn-sm" type="button" id="resetBtn">Sıfırla</button></div></div>
+  <div class="section-heading no-print"><h2>Proje listesi</h2><span id="listInfo">Tüm projeler</span></div>
+  <section id="projectsGrid" class="grid" aria-label="Projeler"></section>
+  <div id="emptyState" class="empty-state hidden"><svg aria-hidden="true"><use href="#i-search"/></svg><h3>Proje bulunamadı</h3><p id="emptyDescription">Aramanıza uygun proje yok.</p><button class="btn btn-light" type="button" id="clearSearchBtn" style="margin-top:17px">Aramayı Temizle</button></div>
+</main>
+<footer class="page-footer no-print">Proje &amp; Ekip Yönetim Sistemi · 2026 · Veriler bu tarayıcıda saklanır</footer>
+<dialog id="projectDialog" aria-labelledby="projectDialogTitle"><div class="dialog-head"><h2 id="projectDialogTitle">Yeni Proje Ekle</h2><button type="button" class="btn btn-plain btn-sm" data-close="projectDialog" aria-label="Kapat"><svg aria-hidden="true"><use href="#i-close"/></svg></button></div><form id="projectForm" class="dialog-content"><input type="hidden" id="editProjectId"><div class="field"><label for="projectTitleInput">Proje başlığı</label><input id="projectTitleInput" maxlength="160" required placeholder="Örn. Akıllı Sağlık Sistemi"><small>En fazla 160 karakter</small></div><div class="form-actions"><button type="button" class="btn btn-light" data-close="projectDialog">Vazgeç</button><button type="submit" class="btn btn-primary">Projeyi Kaydet</button></div></form></dialog>
+<dialog id="memberDialog" aria-labelledby="memberDialogTitle"><div class="dialog-head"><h2 id="memberDialogTitle">Ekip Üyesi Ekle</h2><button type="button" class="btn btn-plain btn-sm" data-close="memberDialog" aria-label="Kapat"><svg aria-hidden="true"><use href="#i-close"/></svg></button></div><form id="memberForm" class="dialog-content"><input type="hidden" id="memberProjectId"><input type="hidden" id="editMemberId"><div class="field"><label for="memberNameInput">Adı soyadı</label><input id="memberNameInput" maxlength="100" required placeholder="Örn. Ahmet Yılmaz"></div><div class="field"><label for="memberDeptInput">Bölüm</label><input id="memberDeptInput" maxlength="100" required placeholder="Örn. Bilgisayar Mühendisliği"></div><div class="field"><label for="memberClassInput">Sınıf</label><input id="memberClassInput" maxlength="40" required placeholder="Örn. 2. Sınıf"></div><div class="form-actions"><button type="button" class="btn btn-light" data-close="memberDialog">Vazgeç</button><button type="submit" class="btn btn-primary">Üyeyi Kaydet</button></div></form></dialog>
+<input id="importInput" type="file" accept=".json,application/json" class="hidden" aria-label="JSON yedeği seç">
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script>
+'use strict';
+// Kaynak dosyadaki 8 proje ve 26 ekip üyeliği korunmuştur.
+const defaultProjects = [
+  {
+    "id": "default-p1",
+    "title": "İşitme Testleriyle Genel Kulak Sağlığı Tarama Uygulaması",
+    "members": [
+      {
+        "id": "default-m1-1",
+        "name": "Kardelen Hatice Aran",
+        "dept": "Odyoloji",
+        "classYear": "2. Sınıf"
+      },
+      {
+        "id": "default-m1-2",
+        "name": "Hasan Adar Yakut",
+        "dept": "Bilgisayar Mühendisliği",
+        "classYear": "2. Sınıf"
+      }
+    ]
+  },
+  {
+    "id": "default-p2",
+    "title": "Akıncı Tiha İnteraktif Dijital İkiz Ve Söküm Simülatörü",
+    "members": [
+      {
+        "id": "default-m2-1",
+        "name": "Aslı Hamamcı",
+        "dept": "Bilgisayar Mühendisliği",
+        "classYear": "2. Sınıf"
+      },
+      {
+        "id": "default-m2-2",
+        "name": "Göksu Vural",
+        "dept": "Bilgisayar Mühendisliği",
+        "classYear": "2. Sınıf"
+      },
+      {
+        "id": "default-m2-3",
+        "name": "Badigül Aktaş",
+        "dept": "Bilgisayar Mühendisliği",
+        "classYear": "2. Sınıf"
+      },
+      {
+        "id": "default-m2-4",
+        "name": "Sami Samet Delice",
+        "dept": "Bilgisayar Mühendisliği",
+        "classYear": "2. Sınıf"
+      },
+      {
+        "id": "default-m2-5",
+        "name": "MirSerhat Bayhan",
+        "dept": "Bilgisayar Mühendisliği",
+        "classYear": "1. Sınıf"
+      }
+    ]
+  },
+  {
+    "id": "default-p3",
+    "title": "Acil Durum İlaç Erişim ve Toplumsal Yardımlaşma Platformu",
+    "members": [
+      {
+        "id": "default-m3-1",
+        "name": "Ezel Pekağaç",
+        "dept": "Kimya Mühendisliği",
+        "classYear": "1. Sınıf"
+      },
+      {
+        "id": "default-m3-2",
+        "name": "Fatmagül Kocaoğlu",
+        "dept": "Ekonometri",
+        "classYear": "2. Sınıf"
+      }
+    ]
+  },
+  {
+    "id": "default-p4",
+    "title": "Bütüncül Koruyucu Sağlık Erken Teşhis ve Fizyoterapi Platformu",
+    "members": [
+      {
+        "id": "default-m4-1",
+        "name": "Zümra Şahan",
+        "dept": "Biyomedikal Mühendisliği",
+        "classYear": "1. Sınıf"
+      }
+    ]
+  },
+  {
+    "id": "default-p5",
+    "title": "Drone Projesi",
+    "members": [
+      {
+        "id": "default-m5-1",
+        "name": "Nisanur Özer",
+        "dept": "Elektrik Elektronik Mühendisliği",
+        "classYear": "1. Sınıf"
+      },
+      {
+        "id": "default-m5-2",
+        "name": "Aslı Hamamcı",
+        "dept": "Bilgisayar Mühendisliği",
+        "classYear": "2. Sınıf"
+      },
+      {
+        "id": "default-m5-3",
+        "name": "Mehmet Akif Akdeniz",
+        "dept": "Yazılım Mühendisliği",
+        "classYear": "Hazırlık"
+      },
+      {
+        "id": "default-m5-4",
+        "name": "Mert Atakan Doğuc",
+        "dept": "Belirtilmemiş",
+        "classYear": "Belirtilmemiş"
+      },
+      {
+        "id": "default-m5-5",
+        "name": "Melisa Delek",
+        "dept": "Bilgisayar Mühendisliği",
+        "classYear": "1. Sınıf"
+      },
+      {
+        "id": "default-m5-6",
+        "name": "Nilay Nur Erimhan",
+        "dept": "Yazılım Mühendisliği",
+        "classYear": "1. Sınıf"
+      },
+      {
+        "id": "default-m5-7",
+        "name": "Nisa Söker",
+        "dept": "Yazılım Mühendisliği",
+        "classYear": "1. Sınıf"
+      }
+    ]
+  },
+  {
+    "id": "default-p6",
+    "title": "Afet Durumu Akıllı Yol Haritası ve Navigasyon Sistemi",
+    "members": [
+      {
+        "id": "default-m6-1",
+        "name": "Samet Kişi",
+        "dept": "Bilgisayar Mühendisliği",
+        "classYear": "2. Sınıf"
+      },
+      {
+        "id": "default-m6-2",
+        "name": "Mahmut Tümo",
+        "dept": "Bilgisayar Mühendisliği",
+        "classYear": "2. Sınıf"
+      }
+    ]
+  },
+  {
+    "id": "default-p7",
+    "title": "Siber Tehdit Ve Zafiyet Bildirim Sistemi",
+    "members": [
+      {
+        "id": "default-m7-1",
+        "name": "Ezgi Yaşar",
+        "dept": "Bilgisayar Mühendisliği",
+        "classYear": "1. Sınıf"
+      },
+      {
+        "id": "default-m7-2",
+        "name": "İrem Su Çankaya",
+        "dept": "Bilgisayar Mühendisliği",
+        "classYear": "1. Sınıf"
+      },
+      {
+        "id": "default-m7-3",
+        "name": "Hiranur Aslanlı",
+        "dept": "Bilgisayar Mühendisliği",
+        "classYear": "1. Sınıf"
+      }
+    ]
+  },
+  {
+    "id": "default-p8",
+    "title": "Oyunlaştırılmış Kodlama Eğitimi Platformu",
+    "members": [
+      {
+        "id": "default-m8-1",
+        "name": "Zeynep Güney",
+        "dept": "Bilgisayar Mühendisliği",
+        "classYear": "1. Sınıf"
+      },
+      {
+        "id": "default-m8-2",
+        "name": "Büşra Günay",
+        "dept": "Bilgisayar Mühendisliği",
+        "classYear": "1. Sınıf"
+      },
+      {
+        "id": "default-m8-3",
+        "name": "Jana Hloubi",
+        "dept": "Bilgisayar Mühendisliği",
+        "classYear": "1. Sınıf"
+      },
+      {
+        "id": "default-m8-4",
+        "name": "Berra Nur Notçuoğlu",
+        "dept": "Bilgisayar Mühendisliği",
+        "classYear": "1. Sınıf"
+      }
+    ]
+  }
+];
+const STORAGE_KEY = 'saved_projects'; // Önceki sürümle aynı anahtar: mevcut veriler taşınır.
+const $ = id => document.getElementById(id);
+let projects = [];
+let toastTimer = null;
+let canPersist = true;
+function newId() {
+  try { if (globalThis.crypto && typeof globalThis.crypto.randomUUID === 'function') return globalThis.crypto.randomUUID(); } catch (_) {}
+  return 'id-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2,12);
+}
+function cloneDefaults() { return JSON.parse(JSON.stringify(defaultProjects)); }
+function cleanText(v, max) { return typeof v === 'string' ? v.trim().slice(0,max) : ''; }
+function normalizeProjects(input) {
+  if (!Array.isArray(input)) throw new Error('Veri biçimi hatalı: proje listesi bir dizi olmalıdır.');
+  if (input.length > 500) throw new Error('En fazla 500 proje içe aktarılabilir.');
+  const projectIds = new Set();
+  return input.map((p,i) => {
+    if (!p || typeof p !== 'object' || Array.isArray(p)) throw new Error(`${i + 1}. proje geçersiz.`);
+    const title = cleanText(p.title,160);
+    if (!title) throw new Error(`${i + 1}. projenin başlığı eksik.`);
+    const rawMembers = p.members === undefined || p.members === null ? [] : p.members;
+    if (!Array.isArray(rawMembers) || rawMembers.length > 1000) throw new Error(`${i + 1}. projenin üye listesi geçersiz.`);
+    let id = cleanText(p.id,120) || newId();
+    if (projectIds.has(id)) id = newId();
+    projectIds.add(id);
+    const memberIds = new Set();
+    const members = rawMembers.map((m,j) => {
+      if (!m || typeof m !== 'object' || Array.isArray(m)) throw new Error(`${i + 1}. projedeki ${j + 1}. üye geçersiz.`);
+      const name = cleanText(m.name,100);
+      if (!name) throw new Error(`${i + 1}. projedeki ${j + 1}. üyenin adı eksik.`);
+      const dept = cleanText(m.dept,100) || 'Belirtilmemiş';
+      const classYear = cleanText(m.classYear,40) || 'Belirtilmemiş';
+      let memberId = cleanText(m.id,120) || newId();
+      if (memberIds.has(memberId)) memberId = newId();
+      memberIds.add(memberId);
+      return {id:memberId,name,dept,classYear};
+    });
+    return {id,title,members};
+  });
+}
+function showToast(message,type='ok') {
+  const toast=$('toast');
+  toast.textContent=message;
+  toast.className='toast visible' + (type==='error'?' error':type==='warn'?' warn':'');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>{toast.classList.remove('visible')},3400);
+}
+function warnStorage(){canPersist=false;$('storageNotice').classList.remove('hidden');$('storageBadge').textContent='Kalıcı kayıt kapalı'}
+function saveToStorage(){
+  if (!canPersist) { showToast('Kalıcı kayıt kapalı: JSON yedeği alın.','warn'); return false; }
+  try{localStorage.setItem(STORAGE_KEY,JSON.stringify(projects));return true}
+  catch(e){warnStorage();showToast('Tarayıcıya kaydedilemedi. JSON yedeği alın.','error');return false}
+}
+function loadProjects(){
+  try{
+    const raw=localStorage.getItem(STORAGE_KEY);
+    if(raw===null){projects=cloneDefaults();return}
+    projects=normalizeProjects(JSON.parse(raw));
+  }catch(err){
+    // Depolama erişimi engelliyse ya da kaydedilmiş JSON bozuksa açılış kesilmez.
+    projects=cloneDefaults();
+    try{localStorage.getItem(STORAGE_KEY)}catch(_){warnStorage();return}
+    try { const raw=localStorage.getItem(STORAGE_KEY); if(raw!==null && localStorage.getItem(STORAGE_KEY+'_invalid_backup')===null) localStorage.setItem(STORAGE_KEY+'_invalid_backup',raw); } catch (_) {}
+    $('dataNotice').textContent='Önceki kayıtlar okunamadı; varsayılan liste gösteriliyor. Eski ham kayıt (varsa) tarayıcıda saved_projects_invalid_backup anahtarına yedeklendi. Geçerli bir JSON yedeği içe aktarabilirsiniz. Ayrıntı: '+err.message;
+    $('dataNotice').classList.remove('hidden');
+  }
+}
+function normalizeSearch(text){return String(text).toLocaleLowerCase('tr-TR').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ı/g,'i').trim()}
+function el(tag,className,text){const e=document.createElement(tag);if(className)e.className=className;if(text!==undefined)e.textContent=text;return e}
+function actionButton(label,classes,handler,aria){const b=el('button','btn '+classes,label);b.type='button';if(aria)b.setAttribute('aria-label',aria);b.addEventListener('click',handler);return b}
+function initials(name){const parts=name.split(/\s+/).filter(Boolean);return (parts.length===1?parts[0].slice(0,2):parts[0].slice(0,1)+parts[parts.length-1].slice(0,1)).toLocaleUpperCase('tr-TR')}
+function render(){
+  const grid=$('projectsGrid');grid.replaceChildren();
+  const term=normalizeSearch($('searchInput').value);
+  let shown=0,shownMembers=0;
+  projects.forEach((p,i)=>{
+    const haystack=[p.title,...p.members.flatMap(m=>[m.name,m.dept,m.classYear])].map(normalizeSearch);
+    if(term&&!haystack.some(s=>s.includes(term)))return;
+    shown++;shownMembers+=p.members.length;
+    const card=el('article','project-card');
+    const topline=el('div','project-topline');
+    topline.append(el('span','project-index','PROJE '+String(i+1).padStart(2,'0')),el('span','member-pill',p.members.length+' üye'));
+    card.append(topline,el('h3','',p.title));
+    const cardActions=el('div','card-actions no-print');
+    cardActions.append(actionButton('Projeyi düzenle','btn-plain btn-sm',()=>openProject(p.id)),actionButton('Projeyi sil','btn-plain btn-sm',()=>deleteProject(p.id)));
+    card.append(cardActions);
+    const ul=el('ul','members');
+    if(!p.members.length){ul.append(el('li','empty-members','Bu projeye henüz ekip üyesi eklenmedi.'))}
+    else p.members.forEach(m=>{
+      const li=el('li','member');
+      const profile=el('div','member-profile');
+      const avatar=el('div','avatar',initials(m.name));avatar.setAttribute('aria-hidden','true');
+      const txt=el('div','member-text');txt.append(el('div','member-name',m.name),el('div','member-detail',m.dept+' · '+m.classYear));
+      profile.append(avatar,txt);
+      const acts=el('div','item-actions no-print');
+      acts.append(actionButton('Düzenle','btn-plain btn-sm',()=>openMember(p.id,m.id),m.name+' kişisini düzenle'),actionButton('Sil','btn-plain btn-sm',()=>deleteMember(p.id,m.id),m.name+' kişisini sil'));
+      li.append(profile,acts);ul.append(li);
+    });
+    card.append(ul);
+    const foot=el('div','card-footer no-print');foot.append(actionButton('+ Üye ekle','btn-primary btn-sm',()=>openMember(p.id)));card.append(foot);
+    grid.append(card);
+  });
+  const members=projects.reduce((n,p)=>n+p.members.length,0);
+  const departments=new Set(projects.flatMap(p=>p.members.map(m=>normalizeSearch(m.dept))));
+  $('statProjects').textContent=projects.length;
+  $('statMembers').textContent=members;
+  $('statDepartments').textContent=departments.size;
+  $('projectCount').textContent=`${shown} / ${projects.length} proje`;
+  $('listInfo').textContent=term?`${shown} eşleşen proje`:'Tüm projeler';
+  $('emptyState').classList.toggle('hidden',shown!==0);
+  $('emptyDescription').textContent=projects.length===0?'Henüz hiç proje yok. Yeni bir proje ekleyerek başlayın.':'Aramanıza uygun proje bulunamadı.';
+  $('clearSearchBtn').classList.toggle('hidden',!term);
+  $('printMeta').textContent=`${shown} proje görüntüleniyor · ${shownMembers} ekip üyeliği kaydı · ${new Date().toLocaleDateString('tr-TR')}`;
+}
+function openDialog(dialog){if(!dialog.open)dialog.showModal()}
+function closeDialog(dialog){if(dialog.open)dialog.close()}
+function openProject(id=null){
+  const p=id===null?null:projects.find(x=>x.id===id);
+  if(id!==null&&!p){showToast('Proje bulunamadı.','error');return}
+  $('projectDialogTitle').textContent=p?'Projeyi Düzenle':'Yeni Proje Ekle';
+  $('editProjectId').value=p?p.id:'';
+  $('projectTitleInput').value=p?p.title:'';
+  openDialog($('projectDialog'));
+  $('projectTitleInput').focus();
+}
+function openMember(projectId,memberId=null){
+  const p=projects.find(x=>x.id===projectId);
+  const m=p&&memberId!==null?p.members.find(x=>x.id===memberId):null;
+  if(!p||(memberId!==null&&!m)){showToast('Proje veya ekip üyesi bulunamadı.','error');return}
+  $('memberDialogTitle').textContent=m?'Ekip Üyesini Düzenle':'Ekip Üyesi Ekle';
+  $('memberProjectId').value=projectId;
+  $('editMemberId').value=m?m.id:'';
+  $('memberNameInput').value=m?m.name:'';
+  $('memberDeptInput').value=m?m.dept:'';
+  $('memberClassInput').value=m?m.classYear:'';
+  openDialog($('memberDialog'));$('memberNameInput').focus();
+}
+function deleteProject(id){
+  const i=projects.findIndex(p=>p.id===id);if(i<0)return;
+  if(!confirm('"'+projects[i].title+'" projesi ve tüm ekip üyeleri silinsin mi?'))return;
+  projects.splice(i,1);const saved=saveToStorage();render();if(saved)showToast('Proje silindi.');
+}
+function deleteMember(projectId,memberId){
+  const p=projects.find(x=>x.id===projectId);if(!p)return;
+  const i=p.members.findIndex(m=>m.id===memberId);if(i<0)return;
+  if(!confirm('"'+p.members[i].name+'" projeden silinsin mi?'))return;
+  p.members.splice(i,1);const saved=saveToStorage();render();if(saved)showToast('Üye silindi.');
+}
+$('projectForm').addEventListener('submit',e=>{
+  e.preventDefault();const title=$('projectTitleInput').value.trim();if(!title){showToast('Proje başlığı girin.','error');return}
+  const id=$('editProjectId').value;
+  if(id){const p=projects.find(x=>x.id===id);if(!p){showToast('Proje bulunamadı.','error');return}p.title=title}
+  else projects.push({id:newId(),title,members:[]});
+  const saved=saveToStorage();closeDialog($('projectDialog'));render();if(saved)showToast(id?'Proje güncellendi.':'Proje eklendi.');
+});
+$('memberForm').addEventListener('submit',e=>{
+  e.preventDefault();const projectId=$('memberProjectId').value,memberId=$('editMemberId').value;
+  const p=projects.find(x=>x.id===projectId);
+  if(!p){showToast('Proje bulunamadı.','error');return}
+  const name=$('memberNameInput').value.trim(),dept=$('memberDeptInput').value.trim(),classYear=$('memberClassInput').value.trim();
+  if(!name||!dept||!classYear){showToast('Tüm alanları doldurun.','error');return}
+  if(memberId){const m=p.members.find(x=>x.id===memberId);if(!m){showToast('Üye bulunamadı.','error');return}Object.assign(m,{name,dept,classYear})}
+  else p.members.push({id:newId(),name,dept,classYear});
+  const saved=saveToStorage();closeDialog($('memberDialog'));render();if(saved)showToast(memberId?'Üye güncellendi.':'Üye eklendi.');
+});
+$('newProjectBtn').addEventListener('click',()=>openProject());
+$('printBtn').addEventListener('click',()=>{render();window.print()});
+$('searchInput').addEventListener('input',render);
+$('clearSearchBtn').addEventListener('click',()=>{$('searchInput').value='';render();$('searchInput').focus()});
+$('resetBtn').addEventListener('click',()=>{
+  if(!confirm('Tüm mevcut projeler ve değişiklikler silinerek başlangıçtaki 8 proje geri yüklensin mi? Önce JSON yedeği alabilirsiniz.'))return;
+  projects=cloneDefaults();const saved=saveToStorage();$('searchInput').value='';$('dataNotice').classList.add('hidden');render();if(saved)showToast('Başlangıç verileri geri yüklendi.');
+});
+$('exportBtn').addEventListener('click',()=>{
+  try{
+    const contents=JSON.stringify({version:1,exportedAt:new Date().toISOString(),projects},null,2);
+    const blob=new Blob([contents],{type:'application/json;charset=utf-8'});
+    const url=URL.createObjectURL(blob),a=document.createElement('a');
+    a.href=url;a.download='proje-ekip-yedek-'+new Date().toISOString().slice(0,10)+'.json';
+    document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+    showToast('JSON yedeği indirildi.');
+  }catch(err){showToast('Yedek oluşturulamadı: '+err.message,'error')}
+});
+$('importBtn').addEventListener('click',()=>$('importInput').click());
+$('importInput').addEventListener('change',async e=>{
+  const file=e.target.files&&e.target.files[0];if(!file)return;
+  try{
+    if(file.size>2*1024*1024)throw new Error('Dosya 2 MB sınırını aşıyor.');
+    const parsed=JSON.parse(await file.text());
+    const payload=Array.isArray(parsed)?parsed:parsed&&parsed.projects;
+    const incoming=normalizeProjects(payload);
+    if(!confirm(`${incoming.length} proje içe aktarılacak. Mevcut liste bu verilerle değiştirilecek. Devam edilsin mi?`))return;
+    projects=incoming;const saved=saveToStorage();$('searchInput').value='';$('dataNotice').classList.add('hidden');render();if(saved)showToast(`${incoming.length} proje içe aktarıldı.`);
+  }catch(err){showToast('İçe aktarma başarısız: '+err.message,'error')}
+  finally{e.target.value=''}
+});
+document.querySelectorAll('[data-close]').forEach(btn=>btn.addEventListener('click',()=>closeDialog($(btn.dataset.close))));
+for(const dialog of document.querySelectorAll('dialog'))dialog.addEventListener('click',e=>{if(e.target===dialog)closeDialog(dialog)});
+window.addEventListener('storage',e=>{
+  if(e.key!==STORAGE_KEY)return;
+  loadProjects();render();showToast('Başka bir sekmedeki değişiklikler yüklendi.');
+});
+loadProjects();render();
+</script>
+</body>
+</html>
